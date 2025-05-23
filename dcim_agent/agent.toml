@@ -1,0 +1,6 @@
+# Example agent.toml configuration file
+agent_id = "agent-001-dev"
+server_unique_id = "server-abc-123-dev"
+api_endpoint = "http://127.0.0.1:8000/api/resource-usage/" # Example, adjust as per actual backend
+auth_token = "your_secure_auth_token_here"
+heartbeat_interval_seconds = 60

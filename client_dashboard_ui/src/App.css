@@ -1,0 +1,112 @@
+:root {
+    --primary-color: #007bff; /* Client dashboard can use the same primary or a different one */
+    --secondary-accent-color: #17a2b8; /* Example: Teal/Info color */
+    --neutral-bg-color: #f0f2f5; /* Light gray for light theme */
+    --text-color: #212529; /* Dark gray for text on light background */
+    --glass-bg-color: rgba(255, 255, 255, 0.80); /* Slightly more opaque for client clarity */
+    --glass-backdrop-filter: blur(8px) saturate(160%); /* Slightly less blur */
+    --border-color: rgba(0, 0, 0, 0.1); /* Subtle border for glass elements */
+    --default-border-radius: 10px; /* Slightly different radius */
+    --modern-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+}
+
+/* Basic Global Styles for Client Dashboard */
+body {
+    margin: 0;
+    font-family: var(--modern-font);
+    background-color: var(--neutral-bg-color);
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+    /* display: flex;
+       flex-direction: column;
+       min-height: 100vh; */
+}
+
+.morphic-glass-element {
+    background-color: var(--glass-bg-color);
+    backdrop-filter: var(--glass-backdrop-filter);
+    -webkit-backdrop-filter: var(--glass-backdrop-filter); /* Safari compatibility */
+    border: 1px solid var(--border-color);
+    border-radius: var(--default-border-radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Slightly softer shadow */
+}
+
+/* Basic Form Styling */
+input[type="text"],
+input[type="password"] {
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--default-border-radius);
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 16px;
+}
+
+button {
+    padding: 12px 18px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--default-border-radius);
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: color-mix(in srgb, var(--primary-color) 80%, black);
+}
+
+/* Basic Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Consider border-spacing for morphic look */
+    margin-bottom: 25px;
+    /* box-shadow is now on .morphic-glass-element if applied to table */
+}
+
+th, td {
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: rgba(255, 255, 255, 0.5); /* Lighter header for glass tables */
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Making table header and cells part of the glass effect if table is .morphic-glass-element */
+.morphic-glass-element th,
+.morphic-glass-element td {
+    background-color: transparent; /* Let parent glass background show */
+    border-color: var(--border-color);
+}
+.morphic-glass-element thead th {
+    border-bottom: 2px solid var(--border-color); /* Stronger separator for header */
+}
+
+/* Utility classes */
+.container {
+    padding: 25px;
+}
+
+.page-title {
+    font-size: 2em;
+    margin-bottom: 25px;
+    color: var(--primary-color);
+}
+
+.error-message {
+    color: #dc3545; /* Bootstrap danger color */
+    font-size: 0.9em;
+    margin-top: 8px;
+}
