@@ -1,6 +1,6 @@
-# DCIM Agent
+# ServerSentryAgent
 
-This is a lightweight Rust-based agent for the DCIM (Data Center Infrastructure Management) system. It collects (currently mock) server resource usage data and sends it to a central DCIM backend.
+This is a lightweight Rust-based agent, ServerSentryAgent, for a Data Center Infrastructure Management (DCIM) system. It collects (currently mock) server resource usage data and sends it to a central backend.
 
 ## Features
 
@@ -14,7 +14,7 @@ This is a lightweight Rust-based agent for the DCIM (Data Center Infrastructure 
 The agent can be configured in two ways:
 
 1.  **`agent.toml` file (Recommended):**
-    Create an `agent.toml` file in the same directory as the agent executable (or the project root when running with `cargo run`).
+    Create an `agent.toml` file in the same directory as the ServerSentryAgent executable (or the project root when running with `cargo run`).
 
     **Sample `agent.toml`:**
     ```toml
@@ -41,7 +41,7 @@ The agent can be configured in two ways:
     export DCIM_AGENT__AUTH_TOKEN="env_token_123"
     # ... and other variables
     ```
-    The agent prioritizes environment variables over the `agent.toml` file if both are present for a given setting.
+    The ServerSentryAgent prioritizes environment variables over the `agent.toml` file if both are present for a given setting.
 
 ## Building and Running
 
@@ -57,16 +57,16 @@ For a release build (optimized):
 ```bash
 cargo build --release
 ```
-The executable will be located at `target/debug/dcim_agent` or `target/release/dcim_agent`.
+The executable will be located at `target/debug/ServerSentryAgent` or `target/release/ServerSentryAgent`.
 
 ### Run
 After building, you can run the agent directly:
 ```bash
-./target/debug/dcim_agent 
+./target/debug/ServerSentryAgent 
 ```
 Or, if you have a release build:
 ```bash
-./target/release/dcim_agent
+./target/release/ServerSentryAgent
 ```
 Alternatively, you can run directly using Cargo (useful for development):
 ```bash
@@ -76,7 +76,7 @@ Ensure your `agent.toml` is correctly configured in the project root when using 
 
 ## JSON Payload Structure
 
-The agent sends a JSON payload to the `api_endpoint` with the following structure:
+The ServerSentryAgent sends a JSON payload to the `api_endpoint` with the following structure:
 
 ```json
 {
@@ -101,7 +101,7 @@ The agent sends a JSON payload to the `api_endpoint` with the following structur
 
 ## Dependencies
 
-The agent relies on the following main Rust crates:
+The ServerSentryAgent relies on the following main Rust crates:
 
 *   `tokio`: Asynchronous runtime.
 *   `reqwest`: HTTP client for sending data.

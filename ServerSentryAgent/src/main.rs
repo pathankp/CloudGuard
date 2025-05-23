@@ -91,7 +91,7 @@ async fn main() {
     };
 
     println!("Configuration loaded: {:?}", agent_config);
-    println!("DCIM Agent starting...");
+    println!("ServerSentryAgent starting...");
     println!("API Endpoint: {}", agent_config.api_endpoint);
     println!("Agent ID: {}", agent_config.agent_id);
     println!("Server Unique ID: {}", agent_config.server_unique_id);
